@@ -1,11 +1,17 @@
 import { Schema, model } from 'mongoose';
 
-const clientSchema = new Schema({
+interface IClient {
+  name: string;
+  email: string;
+  password: string;
+}
+
+const clientSchema = new Schema<IClient>({
   name: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
 });
 
-const Client = model('Client', clientSchema);
+const Client = model<IClient>('Client', clientSchema);
 
 export default Client;
