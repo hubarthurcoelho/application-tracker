@@ -14,9 +14,7 @@ class ClientODM {
     this.model = models.Client || model<IClient>('Client', this.schema);
   }
 
-  public create = async (client: IClient): Promise<IClient> => {
-    return this.model.create({ ...client });
-  }
+  public create = async (client: IClient): Promise<IClient> => this.model.create({ ...client });
 }
 
 export default ClientODM;
